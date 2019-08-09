@@ -14,7 +14,7 @@ class AtividadeResource extends JsonResource
      */
     public function toArray($request)
     {
-        //$path = storage_path('app/atividades/' . $this->imagem);
+        $path = storage_path('app/atividades/' . $this->imagem);
         $picture = base64_encode(Storage::get('atividades/' . $this->imagem));
 
         return [
