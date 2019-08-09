@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Provider para padronizacao de respostas em json
+        App\Providers\ResponseJsonProvider::class
+
+
     ],
 
     /*
