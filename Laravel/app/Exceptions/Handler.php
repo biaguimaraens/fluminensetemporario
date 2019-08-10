@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFound;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +47,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // dd(get_class($exception));
+        
+        if($exception instanceof ModelNotFound){ 
+            return response()->json('Model Not Found. Check if the id requested exists.', 404);
+        }
+        
+        dd('passou batido');
         return parent::render($request, $exception);
     }
 }
