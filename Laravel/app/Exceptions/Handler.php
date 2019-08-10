@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFound;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException as PageNotFound;
 
 class Handler extends ExceptionHandler
 {
@@ -47,13 +48,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // dd(get_class($exception));
+        //  dd(get_class($exception));
         
         if($exception instanceof ModelNotFound){ 
             return response()->json('Model Not Found. Check if the id requested exists.', 404);
         }
         
-        dd('passou batido');
+        if($exception instanceof PageNotFound){ 
+            return response()->json('Page Not Found. Check if url requested exists.', 404);
+        }
+
         return parent::render($request, $exception);
     }
 }
