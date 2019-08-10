@@ -45,7 +45,9 @@ class JogadorController extends Controller
         
         $jogador = Jogador::findOrFail($id);
         
+        $nome = $jogador->apelido;
         $jogador->delete();
-        return response()->success("Jogador deletado com sucesso.");
+        
+        return response()->success("Jogador $nome deletado com sucesso.");
     }
 }

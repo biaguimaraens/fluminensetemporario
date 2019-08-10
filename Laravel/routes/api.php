@@ -19,5 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/jogador/{id}','JogadorController@showJogador');
 Route::post('/jogador', 'JogadorController@createJogador');
-Route::put('/jogador', 'JogadorController@updateJogador');
-Route::delete('/jogador', 'JogadorController@destroyJogador');
+Route::put('/jogador/{id}', 'JogadorController@updateJogador');
+Route::delete('/jogador/{id}', 'JogadorController@destroyJogador');
+
+Route::get('/departamento','DepartamentoController@listDepartamentos');
+Route::get('/departamento/{id}','DepartamentoController@showDepartamento');
+Route::post('/departamento', 'DepartamentoController@createDepartamento');
+Route::put('/departamento/{id}', 'DepartamentoController@updateDepartamento');
+Route::delete('/departamento/{id}', 'DepartamentoController@destroyDepartamento');
