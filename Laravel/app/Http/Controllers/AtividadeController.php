@@ -15,7 +15,9 @@ class AtividadeController extends Controller
      */
     public function index()
     {
-        //
+        $atividades = Atividade::all();
+
+        return response()->success($atividades);
     }
 
     /**
@@ -48,9 +50,11 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function show(Atividade $atividade)
+    public function show($id)
     {
-        //
+        $atividade = Atividade::findOrFail($id);
+
+        return response()->success($atividade);
     }
 
     /**
@@ -71,9 +75,13 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atividade $atividade)
+    public function update(Request $request, $id)
     {
-        //
+        $atividade = Atividade::findOrFail($id);
+        $atividade->atualizarAtividade($request);
+        
+
+        return new AtividadeResource($atividade);
     }
 
     /**
@@ -82,8 +90,9 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy($id)
     {
-        //
+        $atividade = Atividade::findOrFail($id);
+        $atividade->delete();
     }
 }

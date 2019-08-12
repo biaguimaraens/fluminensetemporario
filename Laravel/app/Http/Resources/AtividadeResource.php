@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
+
 
 class AtividadeResource extends JsonResource
 {
@@ -14,12 +16,11 @@ class AtividadeResource extends JsonResource
      */
     public function toArray($request)
     {
-        $path = storage_path('app/atividades/' . $this->imagem);
+        //$path = storage_path('app/atividades/' . $this->imagem);
         $picture = base64_encode(Storage::get('atividades/' . $this->imagem));
 
         return [
-            'id' => $this->nome,
-            'titulo'=> $this->titulo,
+            'nome' => $this->nome,
             'descricao'=> $this->descricao,
             'duracao'=>$this->duracao,
             'tipo'=>$this->tipo,

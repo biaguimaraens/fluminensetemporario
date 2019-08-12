@@ -27,3 +27,9 @@ Route::get('/departamento/{id}','DepartamentoController@showDepartamento');
 Route::post('/departamento', 'DepartamentoController@createDepartamento');
 Route::put('/departamento/{id}', 'DepartamentoController@updateDepartamento');
 Route::delete('/departamento/{id}', 'DepartamentoController@destroyDepartamento');
+
+Route::get('/atividade','AtividadeController@index');
+Route::get('/atividade/{id}','AtividadeController@show');
+Route::post('/atividade', 'AtividadeController@store');
+Route::put('/atividade/{id}', 'AtividadeController@update');
+Route::delete('/atividade/{id}', 'AtividadeController@destroy');
