@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Jogador;
 use Illuminate\Http\Request;
+use App\Http\Resources\JogadorResource;
+use App\Http\Resources\CardJogadorResource as CardsResource;
 
 
 class JogadorController extends Controller
@@ -13,7 +15,15 @@ class JogadorController extends Controller
     public function cardsJogadores(){
         $jogadores = Jogador::all();
 
-        return response()->success($jogadores);
+        $cards = CardsResource::collection($jogadores->keyBy->id);
+        return response()->success($cards);
+    }
+
+    public function cardsJogadoresFluminense(){
+        $jogadores = Jogador::where('clube', 'fluminense')->get();
+
+        $cards = CardsResource::collection($jogadores->keyBy->id);
+        return response()->success($cards);
     }
 
     public function createJogador(Request $request){
@@ -30,7 +40,9 @@ class JogadorController extends Controller
         
         $jogador = Jogador::findOrFail($id);
 
-        return response()->success($jogador);
+        $jogador_resource = new JogadorResource($jogador);
+        return response()->success($jogador_resource);
+        
     }
 
     public function updateJogador(Request $request, $id){
@@ -38,7 +50,8 @@ class JogadorController extends Controller
         $jogador = Jogador::findOrFail($id);
         
         $resposta = $jogador->registraJogador($request);
-        return response()->success([$resposta, $jogador]);
+        $jogador_resource = new JogadorResource($jogador);
+        return response()->success([$resposta, $jogador_resource]);
     }
 
     public function destroyJogador($id){

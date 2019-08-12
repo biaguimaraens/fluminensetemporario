@@ -12,35 +12,35 @@ class Jogador extends Model
 
     protected $fillable = [];
 
-    public function registraJogador($data){
+    public function registraJogador($request){
 
-        if($data->cbf_id != NULL){
-            $this->cbf_id = $data->cbf_id;
+        if($request->cbf_id != NULL){
+            $this->cbf_id = $request->cbf_id;
         }
         
-        if($data->apelido != NULL){
-            $this->apelido = $data->apelido;
+        if($request->apelido != NULL){
+            $this->apelido = $request->apelido;
         }
 
-        if($data->nome_completo != NULL){
-            $this->nome_completo = $data->nome_completo;    
+        if($request->nome_completo != NULL){
+            $this->nome_completo = $request->nome_completo;    
         }
 
-        if($data->nacionalidade != NULL){
-            $this->nacionalidade = $data->nacionalidade;    
+        if($request->nacionalidade != NULL){
+            $this->nacionalidade = $request->nacionalidade;    
         }
 
-        if($data->pe_dominante != NULL){
-            $this->pe_dominante = $data->pe_dominante;    
+        if($request->pe_dominante != NULL){
+            $this->pe_dominante = $request->pe_dominante;    
         }
         
-        if($data->foto != NULL){
+        if($request->foto != NULL){
 
             if(!Storage::exists('jogadores/')) {
                 Storage::makeDirectory('jogadores/', 0775, true);
             }
 
-            $image = base64_decode(substr($data->foto, strpos($data->foto, ",")+1));
+            $image = base64_decode(substr($request->foto, strpos($request->foto, ",")+1));
 		    $imgName = uniqid() . '.jpeg';
 		    $path = storage_path('/app/jogadores/' . $imgName);
 		    file_put_contents($path,$image);
@@ -48,45 +48,52 @@ class Jogador extends Model
 		    $this->foto = $imgName;
         }
         
-        if($data->grupo_atual != NULL){
-            $this->grupo_atual = $data->grupo_atual;
+        if($request->grupo_atual != NULL){
+            $this->grupo_atual = $request->grupo_atual;
         }
         
-        if($data->categoria != NULL){
-            $this->categoria = $data->categoria;
+        if($request->categoria != NULL){
+            $this->categoria = $request->categoria;
         }
 
-        if($data->posicao_principal != NULL){
-            $this->posicao_principal = $data->posicao_principal;
+        if($request->posicao_principal != NULL){
+            $this->posicao_principal = $request->posicao_principal;
         }
         
-        if($data->posicao_secundaria != NULL){
-            $this->posicao_secundaria = $data->posicao_secundaria;
+        if($request->posicao_secundaria != NULL){
+            $this->posicao_secundaria = $request->posicao_secundaria;
         }
         
-        if($data->clube != NULL){
-            $this->clube = $data->clube;
+        if($request->clube != NULL){
+            $this->clube = $request->clube;
         }
         
-        if($data->inicio_clube != NULL){
-            $this->inicio_clube = $data->inicio_clube;
+        if($request->inicio_clube != NULL){
+            $this->inicio_clube = $request->inicio_clube;
         }
 
-        if($data->fim_emprestimo != NULL){
-            $this->fim_emprestimo = $data->fim_emprestimo;
+        if($request->emprestado_clube != NULL){
+            $this->emprestado_clube = $request->emprestado_clube;
         }
 
-        if($data->caracteristicas != NULL){
-            $this->caracteristicas = $data->caracteristicas;
+        if($request->fim_emprestimo != NULL){
+            $this->fim_emprestimo = $request->fim_emprestimo;
+        }
+
+        if($request->caracteristicas != NULL){
+            $this->caracteristicas = $request->caracteristicas;
         }
 
         //verificar como salvar pdf no bd
-        if($data->posicao_secundaria != NULL){
-            $this->anexo = $data->anexo;
+        if($request->anexo != NULL){
+            $this->anexo = $request->anexo;
         }     
         
         $this->save();
         return "Jogador registrado com sucesso!";
+    }
 
+    public function nova(){
+        
     }
 }

@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/jogadores','JogadorController@cardsJogadores');
+Route::get('/jogador','JogadorController@cardsJogadoresFluminense');
 Route::get('/jogador/{id}','JogadorController@showJogador');
 Route::post('/jogador', 'JogadorController@createJogador');
 Route::put('/jogador/{id}', 'JogadorController@updateJogador');
