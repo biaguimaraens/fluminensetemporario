@@ -35,3 +35,9 @@ Route::get('/atividade/{id}','AtividadeController@show');
 Route::post('/atividade', 'AtividadeController@store');
 Route::put('/atividade/{id}', 'AtividadeController@update');
 Route::delete('/atividade/{id}', 'AtividadeController@destroy');
+
+Route::get('/dado_medico','DadoMedicoController@index');
+Route::get('/dado_medico/{id}','DadoMedicoController@show');
+Route::post('/dado_medico', 'DadoMedicoController@store');
+Route::put('/dado_medico/{id}', 'DadoMedicoController@update');
+Route::delete('/dado_medico/{id}', 'DadoMedicoController@destroy');

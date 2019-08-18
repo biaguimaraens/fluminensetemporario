@@ -15,9 +15,7 @@ class AtividadeController extends Controller
      */
     public function index()
     {
-        $atividades = Atividade::all();
-
-        return response()->success($atividades);
+        return AtividadeResource::collection(Atividade::all());
     }
 
     /**
@@ -54,7 +52,7 @@ class AtividadeController extends Controller
     {
         $atividade = Atividade::findOrFail($id);
 
-        return response()->success($atividade);
+        return new AtividadeResource($atividade);
     }
 
     /**

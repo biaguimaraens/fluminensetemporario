@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DadoMedico;
+use App\Http\Resources\DadoMedicoResource;
 use Illuminate\Http\Request;
 
 class DadoMedicoController extends Controller
@@ -14,7 +15,7 @@ class DadoMedicoController extends Controller
      */
     public function index()
     {
-        //
+        return DadoMedicoResource::collection(DadoMedico::all());
     }
 
     /**
@@ -35,7 +36,10 @@ class DadoMedicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dado_medico = new DadoMedico;
+        $dado_medico->registrarDadoMedico($request);
+
+        return new DadoMedicoResource($dado_medico);
     }
 
     /**
@@ -44,9 +48,11 @@ class DadoMedicoController extends Controller
      * @param  \App\DadoMedico  $dadoMedico
      * @return \Illuminate\Http\Response
      */
-    public function show(DadoMedico $dadoMedico)
+    public function show($id)
     {
-        //
+        $dado_medico = DadoMedico::findOrFail($id);
+
+        return new DadoMedicoResource($dado_medico);
     }
 
     /**
@@ -57,7 +63,7 @@ class DadoMedicoController extends Controller
      */
     public function edit(DadoMedico $dadoMedico)
     {
-        //
+        
     }
 
     /**
@@ -67,9 +73,13 @@ class DadoMedicoController extends Controller
      * @param  \App\DadoMedico  $dadoMedico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DadoMedico $dadoMedico)
+    public function update(Request $request, $id)
     {
-        //
+        $dado_medico = DadoMedico::findOrFail($id);
+        $dado_medico->atualizarDadoMedico($request);
+        
+
+        return new DadoMedicoResource($dado_medico);
     }
 
     /**
@@ -78,8 +88,9 @@ class DadoMedicoController extends Controller
      * @param  \App\DadoMedico  $dadoMedico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DadoMedico $dadoMedico)
+    public function destroy($id)
     {
-        //
+        $dado_medico = DadoMedico::findOrFail($id);
+        $dado_medico->delete();
     }
 }
