@@ -3,18 +3,36 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class DadoMedico extends Model
 {
+
+	public function jogador(){
+      return $this->belongsTo('App\Jogador', 'jogador_id', 'id');
+    }
+
     public function registrarDadoMedico($request){
 
     	$this->sexo = $request->sexo;
+        $this->jogador_id = $request->jogador_id;
     	$this->altura = $request->altura;
     	$this->peso = $request->peso;
     	$this->peso_anterior = $request->peso_anterior;
     	$this->disponivel = $request->disponivel;
     	$this->restricao = $request->restricao;
+    	$this->historico_medico = $request->historico_medico;
+
+    	if(!Storage::exists('anexo_dados_medicos/')) {
+			Storage::makeDirectory('anexo_dados_medicos/', 0775, true);
+        }
+        $anexo = $request->file('anexo');
+        $filename = 'anexo.'. $anexo->getClientOriginalExtension();
+        $path = $anexo->storeAs('anexo_dados_medicos',$filename);
+        $this->anexo = $path;
+
     	$this->save();
+
     }
 
     public function atualizarDadoMedico($request){
@@ -37,6 +55,19 @@ class DadoMedico extends Model
         if ($request->restricao){
             $this->restricao = $request->restricao;
         }
+        if ($request->historico_medico){
+            $this->historico_medico = $request->historico_medico;
+        }
+        if ($request->anexo){
+        	
+            if(!Storage::exists('anexo_dados_medicos/')) {
+			Storage::makeDirectory('anexo_dados_medicos/', 0775, true);
+        }
+	        $anexo = $request->file('anexo');
+	        $path = $anexo->store('anexo_dados_medicos');
+	        $this->anexo = $path;
+        }
+
         $this->save();
     }
 }

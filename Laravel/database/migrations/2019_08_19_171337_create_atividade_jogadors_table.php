@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDadoMedicosTable extends Migration
+class CreateAtividadeJogadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,18 @@ class CreateDadoMedicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('dado_medicos', function (Blueprint $table) {
+        Schema::create('atividade_jogadors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('jogador_id')->unique();
-            $table->string('sexo');
-            $table->float('altura');
-            $table->float('peso');
-            $table->float('peso_anterior');
-            $table->string('disponivel');
-            $table->string('restricao');
+            $table->unsignedBigInteger('jogador_id');
+            $table->unsignedBigInteger('atividade_id');
+            $table->string('grupo');
             $table->string('anexo');
-            $table->text('historico_medico');
+            $table->string('data');
             $table->timestamps();
         });
-        Schema::table('dado_medicos', function (Blueprint $table){
+        Schema::table('atividade_jogadors', function (Blueprint $table){
             $table->foreign('jogador_id')->references('id')->on('jogadors')->onDelete('cascade');
+            $table->foreign('atividade_id')->references('id')->on('atividades')->onDelete('cascade');
         });
     }
 
@@ -38,6 +35,6 @@ class CreateDadoMedicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dado_medicos');
+        Schema::dropIfExists('atividade_jogadors');
     }
 }

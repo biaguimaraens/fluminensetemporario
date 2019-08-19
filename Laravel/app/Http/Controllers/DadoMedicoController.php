@@ -40,6 +40,7 @@ class DadoMedicoController extends Controller
         $dado_medico->registrarDadoMedico($request);
 
         return new DadoMedicoResource($dado_medico);
+
     }
 
     /**

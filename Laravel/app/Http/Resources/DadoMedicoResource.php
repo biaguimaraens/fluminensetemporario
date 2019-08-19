@@ -15,12 +15,14 @@ class DadoMedicoResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'jogador'=>($this->jogador)->apelido,
             'sexo' => $this->sexo,
             'altura'=> $this->altura,
             'peso'=>$this->peso,
             'peso_anterior'=>$this->peso_anterior,
             'disponivel'=>$this->disponivel,
             'restricao'=>$this->restricao,
+            'historico_medico'=>$this->historico_medico,
         ];
     }
 }
