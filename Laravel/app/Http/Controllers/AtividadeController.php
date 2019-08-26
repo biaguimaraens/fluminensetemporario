@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Atividade;
 use App\Http\Resources\AtividadeResource;
 use Illuminate\Http\Request;
+use App\Http\Requests\AtividadeRequest;
 
 class AtividadeController extends Controller
 {
@@ -34,7 +35,7 @@ class AtividadeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AtividadeRequest $request)
     {
         $atividade = new Atividade;
         $atividade->cadastrarAtividade($request);
@@ -73,7 +74,7 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AtividadeRequest $request, $id)
     {
         $atividade = Atividade::findOrFail($id);
         $atividade->atualizarAtividade($request);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DadoMedico;
 use App\Http\Resources\DadoMedicoResource;
 use Illuminate\Http\Request;
+use App\Http\Requests\DadoMedicoRequest;
 
 class DadoMedicoController extends Controller
 {
@@ -34,7 +35,7 @@ class DadoMedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DadoMedicoRequest $request)
     {
         $dado_medico = new DadoMedico;
         $dado_medico->registrarDadoMedico($request);
@@ -74,7 +75,7 @@ class DadoMedicoController extends Controller
      * @param  \App\DadoMedico  $dadoMedico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DadoMedicoRequest $request, $id)
     {
         $dado_medico = DadoMedico::findOrFail($id);
         $dado_medico->atualizarDadoMedico($request);
