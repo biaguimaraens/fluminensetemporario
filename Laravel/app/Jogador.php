@@ -41,6 +41,7 @@ class Jogador extends Model
             }
 
             $image = base64_decode(substr($request->foto, strpos($request->foto, ",")+1));
+            // $image = $request->file('photo');
 		    $imgName = uniqid() . '.jpeg';
 		    $path = storage_path('/app/jogadores/' . $imgName);
 		    file_put_contents($path,$image);
@@ -48,6 +49,26 @@ class Jogador extends Model
 		    $this->foto = $imgName;
         }
         
+        // if($request->foto != NULL){
+            
+        //     if(!Storage::exists('jogadores/')) {
+        //         Storage::makeDirectory('jogadores/', 0775, true);
+        //     }
+
+        //     $image = $request->file('photo');
+        //     $fileName = time().'.'. $image->getClientOriginalExtension();
+
+        //     $img = Image::make($image->getRealPath());
+        //     $img->resize(120, 120, function ($constraint) {
+        //         $constraint->aspectRatio();                 
+        //     });
+
+        //     $img->stream(); // <-- Key point
+
+        //     //dd();
+        //     Storage::disk('local')->put('images/1/smalls'.'/'.$fileName, $img, 'public');
+        // }
+
         if($request->grupo_atual != NULL){
             $this->grupo_atual = $request->grupo_atual;
         }

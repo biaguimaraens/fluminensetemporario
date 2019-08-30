@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Jogador;
-use Illuminate\Http\Request;
+use App\Http\Requests\JogadorRequest as Request;
 use App\Http\Resources\JogadorResource;
 use App\Http\Resources\CardJogadorResource as CardsResource;
+
 
 
 class JogadorController extends Controller
