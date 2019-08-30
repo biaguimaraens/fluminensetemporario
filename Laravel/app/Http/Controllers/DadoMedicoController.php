@@ -6,6 +6,8 @@ use App\DadoMedico;
 use App\Http\Resources\DadoMedicoResource;
 use Illuminate\Http\Request;
 use App\Http\Requests\DadoMedicoRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class DadoMedicoController extends Controller
 {
@@ -53,8 +55,10 @@ class DadoMedicoController extends Controller
     public function show($id)
     {
         $dado_medico = DadoMedico::findOrFail($id);
+        return Storage::download($dado_medico->anexo);
 
-        return new DadoMedicoResource($dado_medico);
+        //return new DadoMedicoResource($dado_medico);
+
     }
 
     /**
@@ -82,6 +86,10 @@ class DadoMedicoController extends Controller
         
 
         return new DadoMedicoResource($dado_medico);
+    }
+    public function download($id){
+        $download =  DadoMedico::findOrFail($id);
+        return Storage::get($download->anexo);
     }
 
     /**

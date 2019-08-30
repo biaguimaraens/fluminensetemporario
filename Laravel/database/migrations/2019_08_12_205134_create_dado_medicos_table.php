@@ -22,7 +22,7 @@ class CreateDadoMedicosTable extends Migration
             $table->float('peso_anterior');
             $table->string('disponivel');
             $table->string('restricao');
-            $table->binary('anexo');
+            $table->string('anexo');
             $table->text('historico_medico');
             $table->timestamps();
         });

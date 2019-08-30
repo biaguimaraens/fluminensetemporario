@@ -26,11 +26,8 @@ class DadoMedico extends Model
     	if(!Storage::exists('anexo_dados_medicos/')) {
 			Storage::makeDirectory('anexo_dados_medicos/', 0775, true);
         }
-        $anexo = $request->file('anexo');
-        $filename = 'anexo.'. $anexo->getClientOriginalExtension();
-        $path = $anexo->storeAs('anexo_dados_medicos',$filename);
+        $path = $request->file('anexo')->store('anexo_dados_medicos');
         $this->anexo = $path;
-
     	$this->save();
 
     }
@@ -63,11 +60,11 @@ class DadoMedico extends Model
             if(!Storage::exists('anexo_dados_medicos/')) {
 			Storage::makeDirectory('anexo_dados_medicos/', 0775, true);
         }
-	        $anexo = $request->file('anexo');
-	        $path = $anexo->store('anexo_dados_medicos');
+	        $path = $request->file('anexo')->store('anexo_dados_medicos');
 	        $this->anexo = $path;
         }
 
         $this->save();
     }
+    
 }

@@ -32,7 +32,7 @@ class DadoMedicoRequest extends FormRequest
             'peso_anterior'=>'numeric',
             'disponivel'=>'string',
             'restricao'=>'string',
-            'anexo'=>'numeric',
+            'anexo'=>'file',
             'historico_medico'=>'string',
         ];
     }
