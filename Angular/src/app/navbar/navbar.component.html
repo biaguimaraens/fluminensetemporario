@@ -1,0 +1,45 @@
+<div id = "navbar">
+  <div class = "horizontal">
+    <img>
+    <img class="nav-item" src="../../assets/imgs/ESCUDO.png">
+    <img class="nav-item" src="../../assets/imgs/user.png">
+  </div>
+
+  <!--barra lateral aberta-->
+  <div *ngIf="this.navBarState" class = "vertical-open">
+    <div (click)="SwitchNavBarState( )" class="sidenav-item">
+      <img class="menu" src="../../assets/imgs/menu.png" >
+    </div>
+    <div class="sidenav-item">
+      <p class="sidenav-icon">icon</p> <p class="sidenav-text">texto</p>
+    </div>
+    <div class="sidenav-item">
+      <p class="sidenav-icon">icon</p> <p class="sidenav-text">texto</p>
+    </div>
+    <div class="sidenav-item">
+      <p class="sidenav-icon">icon</p> <p class="sidenav-text">texto</p>
+    </div>
+    <div class="sidenav-item">
+      <p class="sidenav-icon">icon</p> <p class="sidenav-text">texto</p>
+    </div>
+  </div>
+
+  <!--barra lateral fechada-->
+  <div *ngIf="!this.navBarState" class = "vertical-closed">
+    <div (click)="SwitchNavBarState( )" class="closed-nav-item">
+      <img class="menu" src="../../assets/imgs/menu.png">
+    </div>
+    <div class="closed-nav-item">
+      <p class="sidenav-icon">icon</p> 
+    </div>
+    <div class="closed-nav-item">
+      <p class="sidenav-icon">icon</p> 
+    </div>
+    <div class="closed-nav-item">
+      <p class="sidenav-icon">icon</p>
+    </div>
+    <div class="closed-nav-item">
+      <p class="sidenav-icon">icon</p>
+    </div>
+  </div>
+</div>
