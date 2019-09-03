@@ -18,11 +18,12 @@ export class NavbarComponent implements OnInit {
   //Funcao para alterar a expansao da side navbar entre aberto e fechado.//
   SwitchNavBarState(){
     this.navBarState = !this.navBarState;
-    console.log(this.navBarState)
+    
+    //console.log(this.navBarState);
   }
 
   ngOnInit() {
-    console.log(this.navBarState)
+    //console.log(this.navBarState)
   }
 
 }
