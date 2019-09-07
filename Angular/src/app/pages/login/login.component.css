@@ -3,21 +3,14 @@
     justify-content: center;
     align-items: flex-end;
 
-    height: 100vh;
+    height: 120vh;
 }
 
 #loginLogo {
     width: 12em;
-    top: 2em;
+    margin-bottom: 13vh;
     position: relative;
     z-index: 2;
-
-    background-color: #ffffff;
-
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #9F022F;
-    border-width: 0.75em;
 }
 
 .image {
@@ -45,4 +38,10 @@ mat-grid-list {
 
 mat-form-field {
     width: 60%;
+}
+
+button{
+    color:#ffffff;
+    background-color:#9F022F;
+
 }
