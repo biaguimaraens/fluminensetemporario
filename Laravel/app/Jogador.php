@@ -36,39 +36,10 @@ class Jogador extends Model
         
         if($request->foto != NULL){
 
-            if(!Storage::exists('jogadores/')) {
-                Storage::makeDirectory('jogadores/', 0775, true);
-            }
-
-            $image = base64_decode(substr($request->foto, strpos($request->foto, ",")+1));
-            // $image = $request->file('photo');
-		    $imgName = uniqid() . '.jpeg';
-		    $path = storage_path('/app/jogadores/' . $imgName);
-		    file_put_contents($path,$image);
-
+            $imgName = $this->imgPath($request->foto);
 		    $this->foto = $imgName;
         }
         
-        // if($request->foto != NULL){
-            
-        //     if(!Storage::exists('jogadores/')) {
-        //         Storage::makeDirectory('jogadores/', 0775, true);
-        //     }
-
-        //     $image = $request->file('photo');
-        //     $fileName = time().'.'. $image->getClientOriginalExtension();
-
-        //     $img = Image::make($image->getRealPath());
-        //     $img->resize(120, 120, function ($constraint) {
-        //         $constraint->aspectRatio();                 
-        //     });
-
-        //     $img->stream(); // <-- Key point
-
-        //     //dd();
-        //     Storage::disk('local')->put('images/1/smalls'.'/'.$fileName, $img, 'public');
-        // }
-
         if($request->grupo_atual != NULL){
             $this->grupo_atual = $request->grupo_atual;
         }
@@ -107,14 +78,42 @@ class Jogador extends Model
 
         //verificar como salvar pdf no bd
         if($request->anexo != NULL){
-            $this->anexo = $request->anexo;
+            
+            $anexo = $request->file('anexo');
+            $path = $this->filePath($anexo);
+
+            $this->anexo = $path;
         }     
         
         $this->save();
         return "Jogador registrado com sucesso!";
     }
 
-    public function nova(){
+    public function imgPath($img){
         
+        if(!Storage::exists('jogadores/imgs')) {
+            Storage::makeDirectory('jogadores/imgs', 0775, true);
+        }
+
+        $image = base64_decode(substr($img, strpos($img, ",")+1));
+        
+        $imgName = uniqid() . '.png';
+        $path = storage_path('app/jogadores/imgs/' . $imgName);
+        file_put_contents($path,$image);
+
+        return $imgName;
+
+    }
+
+    public function filePath($file){
+        
+        if(!Storage::exists('jogadores/anexos')) {
+            Storage::makeDirectory('jogadores/anexos', 0775, true);
+        }
+        
+        $filename = 'anexo.'. $file->getClientOriginalExtension();
+        $path = $file->storeAs('jogadores/anexos',$filename);
+
+        return $path;
     }
 }
