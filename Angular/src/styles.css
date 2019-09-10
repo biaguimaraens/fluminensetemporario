@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import '@fullcalendar/core/main.min.css';
-@import '@fullcalendar/daygrid/main.min.css';
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
 
 html {
     background-image: url('http://s.glbimg.com/es/ge/f/original/2015/08/01/c0x0303.jpg');
