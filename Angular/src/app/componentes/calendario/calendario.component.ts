@@ -10,37 +10,37 @@ import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
   templateUrl: './calendario.component.html',
   styleUrls: ['./calendario.component.css']
 })
-export class CalendarioComponent implements OnInit {
+export class CalendarioComponent {
 
-  @ViewChild('calendar') calendarComponent: FullCalendarComponent; // the #calendar in the template
+  // @ViewChild('calendar') calendarComponent: FullCalendarComponent; // the #calendar in the template
 
-  calendarVisible = true;
-  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
-  calendarWeekends = true;
-  calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() }
-  ];
+  // calendarVisible = true;
+   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
+  // calendarWeekends = true;
+  // calendarEvents: EventInput[] = [
+  //   { title: 'Event Now', start: new Date() }
+  // ];
 
-  toggleVisible() {
-    this.calendarVisible = !this.calendarVisible;
-  }
+  // toggleVisible() {
+  //   this.calendarVisible = !this.calendarVisible;
+  // }
 
-  toggleWeekends() {
-    this.calendarWeekends = !this.calendarWeekends;
-  }
+  // toggleWeekends() {
+  //   this.calendarWeekends = !this.calendarWeekends;
+  // }
 
-  gotoPast() {
-    let calendarApi = this.calendarComponent.getApi();
-    calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
-  }
+  // gotoPast() {
+  //   let calendarApi = this.calendarComponent.getApi();
+  //   calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
+  // }
 
-  handleDateClick(arg) {
-    if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-        title: 'New Event',
-        start: arg.date,
-        allDay: arg.allDay
-      })
-    }
-  }
+  // handleDateClick(arg) {
+  //   if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
+  //     this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
+  //       title: 'New Event',
+  //       start: arg.date,
+  //       allDay: arg.allDay
+  //     })
+  //   }
+  // }
 }
