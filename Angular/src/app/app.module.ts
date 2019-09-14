@@ -27,7 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     LoginComponent,
     CalendarioComponent,
-    AtividadeComponent
+    AtividadeComponent,
     NavbarComponent
   ],
   imports: [
