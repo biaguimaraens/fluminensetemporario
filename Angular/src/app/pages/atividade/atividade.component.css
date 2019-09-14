@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+
+    width: 97.5vw;
+    height: 97.5vh;
+    background-color: whitesmoke;
+    border-radius: .5em;
+}
+
+.calendario {
+    width: 60%;
+}

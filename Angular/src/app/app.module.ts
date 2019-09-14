@@ -16,13 +16,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AtividadeComponent } from './pages/atividade/atividade.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    AtividadeComponent
   ],
   imports: [
     BrowserModule,
