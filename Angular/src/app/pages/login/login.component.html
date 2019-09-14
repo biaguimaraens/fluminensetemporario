@@ -1,0 +1,27 @@
+<div class="posicionador">
+  <!-- LINK DA IMAGEM É TEMPORÁRIA-->
+  <div class="image">
+    <img id="loginLogo"
+      src="https://1.bp.blogspot.com/-nyRevzgc1WM/WB-c0HziDgI/AAAAAAAAEjs/tX_8uSEfS_ojdHv2lGwhgO46jQFKYzsjwCLcB/s1600/fluminenselogo.png"
+      alt="Escudo do Fluminense">
+    <mat-card>
+      <mat-grid-list cols="1" rowHeight="fit">
+        <form [formGroup]="login" (ngSubmit)="onSubmit(login)">
+          <mat-grid-tile>
+            <mat-form-field>
+              <input matInput type="text" formControlName="email" placeholder="Email">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <input matInput type="password" formControlName="password" placeholder="Senha">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button mat-raised-button type="submit">Entrar</button>
+          </mat-grid-tile>
+        </form>
+      </mat-grid-list>
+    </mat-card>
+  </div>
+</div>

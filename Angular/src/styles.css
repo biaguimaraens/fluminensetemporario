@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@fullcalendar/core/main.min.css';
+@import '@fullcalendar/daygrid/main.min.css';
+
+html {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5cf9a07065f1450a2c2670d9/5d6c259798ecc07d2c0273d5/e66bc4d96b36170e05b5f15f1f3ff7e0/Fundo_Sem_Escudo.jpg');
+    background-size: cover;
+    background-color: rgba(100,100,100,0.75);
+    background-blend-mode: multiply;
+}

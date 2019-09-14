@@ -1,0 +1,47 @@
+.posicionador {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    height: 120vh;
+}
+
+#loginLogo {
+    width: 12em;
+    margin-bottom: 13vh;
+    position: relative;
+    z-index: 2;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-card {
+    height: 60vh;
+    min-width: 25em;
+    max-width: 30em;
+    width: 40vw;
+
+    bottom: 7vh;
+}
+/* 
+    Esse componente precisa de uma altura para funcionar com rowHeight="fit"
+    Eu pego essa altura a partir de card, então cuidado com mat-card!
+*/
+mat-grid-list {
+    top: 20%;
+    height: 80%;
+}
+
+mat-form-field {
+    width: 60%;
+}
+
+button{
+    color:#ffffff;
+    background-color:#9F022F;
+
+}
