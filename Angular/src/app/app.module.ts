@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AtividadeComponent } from './pages/atividade/atividade.component';
 
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AtividadeComponent } from './pages/atividade/atividade.component';
     LoginComponent,
     CalendarioComponent,
     AtividadeComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
