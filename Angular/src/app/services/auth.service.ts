@@ -8,30 +8,34 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  apiUrl: string = 'http://localhost:8000/api/'
-  DELETDIS: any = {
-    success: {
-      token: 'YAY'
-    },
-    status: 200
+  apiUrl: string = 'http://localhost:8000/api/';
+  httpHeaders: any = {
+      headers: { 
+              'Content-Type':  'application/json',
+              'Accept': 'application/json'
+      } 
   }
+
   constructor(public http: HttpClient) { }
 
   public login(user): Observable<any> {
-    // return this.http.post(this.apiUrl + 'login',{
-    //   email: user.email,
-    //   password: user.password
-    // })
-    return of(this.DELETDIS)
+    return this.http.post(
+      this.apiUrl + 'login',
+      {
+        email: user.email,
+        password: user.password
+      }, 
+      this.httpHeaders);
+    
   }
 
-  public register(user): Observable<any> {
+  //public register(user): Observable<any> {
     // return this.http.post(this.apiUrl + 'register',{
     //   name: user.name,
     //   email: user.email,
     //   password: user.password,
     //   c_password: user.c_password
     // })
-    return of(this.DELETDIS)
-  }
+    //return of(this.DELETDIS)
 }
+
