@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AtividadeComponent } from './pages/atividade/atividade.component';
+import { AuthGuard } from './guards/auth.guard';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -44,7 +45,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatGridListModule,
     FullCalendarModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
