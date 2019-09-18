@@ -12,4 +12,9 @@
 
 .calendario {
     width: 60%;
+    z-index: 0;
+}
+
+app-navbar{
+    z-index: 1;
 }
