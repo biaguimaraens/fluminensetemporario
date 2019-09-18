@@ -3,9 +3,11 @@
     justify-content: flex-start;
 
     width: 97.5vw;
-    height: 97.5vh;
+    height: 110vh;
     background-color: whitesmoke;
     border-radius: .5em;
+    padding-left: 5vw;
+    padding-top:7vh;
 }
 
 .calendario {

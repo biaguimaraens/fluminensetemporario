@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
+
   { path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'atividade', component: AtividadeComponent }
