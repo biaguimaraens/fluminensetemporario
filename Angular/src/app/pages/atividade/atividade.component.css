@@ -2,12 +2,19 @@
     display: flex;
     justify-content: flex-start;
 
-    width: 97.5vw;
-    height: 97.5vh;
+    width: 93.2vw;
+    height: 110vh;
     background-color: whitesmoke;
     border-radius: .5em;
+    padding-left: 5vw;
+    padding-top:7vh;
 }
 
 .calendario {
     width: 60%;
+    z-index: 0;
+}
+
+app-navbar{
+    z-index: 1;
 }

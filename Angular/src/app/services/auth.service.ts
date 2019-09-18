@@ -26,7 +26,6 @@ export class AuthService {
         password: user.password
       }, 
       this.httpHeaders);
-    
   }
 
   //public register(user): Observable<any> {
