@@ -6,7 +6,7 @@
 }
 
 #loginLogo {
-    width: 12em;
+    width: 11em;
     position: relative;
     z-index: 2;
 }
@@ -21,9 +21,9 @@ mat-card {
     height: 60vh;
     min-width: 25em;
     max-width: 30em;
-    width: 40vw;
-
-    bottom: 7vh;
+    width: 20vw;
+    opacity: 0.9;
+    bottom: 2vh;
 }
 /* 
     Esse componente precisa de uma altura para funcionar com rowHeight="fit"
