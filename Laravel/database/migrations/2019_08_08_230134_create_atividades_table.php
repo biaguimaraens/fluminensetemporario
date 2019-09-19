@@ -19,7 +19,7 @@ class CreateAtividadesTable extends Migration
             $table->text('descricao');
             $table->integer('duracao');
             $table->string('tipo');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
             $table->timestamps();
         });
     }

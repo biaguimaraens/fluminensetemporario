@@ -17,8 +17,8 @@ class CreateAtividadeJogadorsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('jogador_id');
             $table->unsignedBigInteger('atividade_id');
-            $table->string('grupo');
-            $table->string('anexo');
+            $table->string('grupo')-> nullable();
+            $table->string('anexo')->nullable();
             $table->string('data');
             $table->timestamps();
         });
