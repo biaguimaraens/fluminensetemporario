@@ -33,7 +33,8 @@ class JogadorRequest extends FormRequest
     public function rules()
     {
 
-        $cbf_id = array('required','regex:/^[0-9]{7}/');
+        $cbf_id = array('required','regex:/^[0-9]{7}/','max:7');
+        $update_cbf_id = array('regex:/^[0-9]{7}/','max:7');
 
         if ($this->isMethod('post')){
             return [
@@ -42,7 +43,7 @@ class JogadorRequest extends FormRequest
                 'nome_completo' => 'required|string',
                 'nacionalidade' => 'required|string',
                 'pe_dominante' => 'required|string',
-                'foto' => 'string', //verificar como ver o  tipo de imagem.
+                'foto' => 'string',//'mimes:jpeg,jpg,png,gif', 
                 'grupo_atual' => 'string',
                 'categoria' => 'string',
                 'posicao_principal' => 'required|string',
@@ -52,18 +53,18 @@ class JogadorRequest extends FormRequest
                 'emprestado_clube'=> 'string',
                 'fim_emprestimo'=> 'string',
                 'caracteristicas'=> 'string',
-                'anexo' => 'string',
+                'anexo' => 'mimes:pdf',
             ];
         }
 
         if ($this->isMethod('put')){
             return [
-                'cbf_id' => 'regex:/^[0-9]{7}/',
+                'cbf_id' => $update_cbf_id,
                 'apelido' => 'string',
                 'nome_completo' => 'string',
                 'nacionalidade' => 'string',
                 'pe_dominante' => 'string',
-                'foto' => 'string',
+                'foto' => 'mimes:jpeg,jpg,png,gif',
                 'grupo_atual' => 'string',
                 'categoria' => 'string',
                 'posicao_principal' => 'string',
@@ -82,12 +83,15 @@ class JogadorRequest extends FormRequest
     {
       return [
         'cbf_id.required' => 'Por favor preencha o campo CBF ID.',
-        'cbf_id.regex' => 'Por favor digite 7 numeros.',
+        'cbf_id.max' => 'Você digitou mais que 7 números, verifique sua entrada.',
+        'cbf_id.regex' => 'Por favor digite 7 números.',
         'apelido.required' =>'Por favor preencha o campo Apelido.',
         'nome_completo.required' => 'Por favor preencha o campo Nome Completo.',
         'nacionalidade.required' => 'Por favor preencha o campo Nacionalidade.',
         'pe_dominante.required' => 'Por favor preencha o campo Pé Dominante.',
         'posicao_principal.required' => 'Por favor preencha o campo Posição Principal.',
+        'anexo.mimes' => 'O anexo deve ser um arquivo pdf.',
+        'foto.mimes' => 'A foto deve ser um arquivo jpeg, jpg, png ou gif. Verifique sua entrada.',
         
       ];
     }

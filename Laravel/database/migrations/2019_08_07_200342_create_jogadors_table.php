@@ -23,7 +23,7 @@ class CreateJogadorsTable extends Migration
             $table->string('nome_completo');
             $table->string('nacionalidade');
             $table->string('pe_dominante');
-            $table->string('foto')->nullable();
+            $table->longText('foto')->nullable();
             $table->string('grupo_atual')->nullable();
             $table->string('categoria')->nullable();
             $table->string('posicao_principal');
