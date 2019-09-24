@@ -18,9 +18,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { AtividadeComponent } from './pages/atividade/atividade.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { AtividadeComponent } from './pages/atividade/atividade.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MarcatividadeComponent } from './componentes/marcatividade/marcatividade.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     CalendarioComponent,
     AtividadeComponent,
-    NavbarComponent
+    NavbarComponent,
+    MarcatividadeComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatExpansionModule,
+    ScrollingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
