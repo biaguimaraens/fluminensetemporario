@@ -25,11 +25,26 @@ mat-expansion-panel{
 
 mat-action-row{
     display:flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .textcont{
     padding-top: 1.7vw;
     color:white;
     font-size: 0.9em;
+}
+
+.at_avatar{
+    border-radius:100%;
+    background-color:white;
+    width:3vw;
+    height:3vw;
+    display:flex;
+    justify-content: center;
+    align-items:center;  
+}
+
+.avatar_icon{
+    width:2vw;
+    height:2vw;
 }
