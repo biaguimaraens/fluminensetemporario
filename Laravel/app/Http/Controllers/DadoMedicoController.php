@@ -55,9 +55,9 @@ class DadoMedicoController extends Controller
     public function show($id)
     {
         $dado_medico = DadoMedico::findOrFail($id);
-        return Storage::download($dado_medico->anexo);
+        //return Storage::download($dado_medico->anexo);
 
-        //return new DadoMedicoResource($dado_medico);
+        return new DadoMedicoResource($dado_medico);
 
     }
 
