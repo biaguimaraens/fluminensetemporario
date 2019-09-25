@@ -18,11 +18,12 @@ class CreateJogadorsTable extends Migration
             // infos gerais a todos dptos
 
             $table->bigIncrements('id');
-            $table->string('cbf_id');
+            $table->string('cbf_id')->nullable();
             $table->string('apelido');
             $table->string('nome_completo');
             $table->string('nacionalidade');
             $table->string('pe_dominante');
+            $table->string('nascimento')->nullable();
             $table->longText('foto')->nullable();
             $table->string('grupo_atual')->nullable();
             $table->string('categoria')->nullable();
