@@ -27,6 +27,7 @@ import { MarcatividadeComponent } from './componentes/marcatividade/marcatividad
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

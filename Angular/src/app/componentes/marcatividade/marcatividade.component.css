@@ -1,4 +1,35 @@
-.scrollarea {
-    width:30%;
-    height: 100%;
+mat-expansion-panel{
+    width:20%;
+    height:100%;
+    background-color: #006940;
+}
+
+.header_title_text{
+    color:white;
+    font-weight:bold;
+}
+
+.hd_desc{
+    color:white;
+}
+
+.image{
+    width:16.3vw;
+    height:20vh;
+    background-image: url("https://thumbs.web.sapo.io/?epic=NWVlP/N+EoCy+F8jv9Ob+CfMy+1U4tgXXQ3X0FvVFZDhumDS66BVENsFbaQVF2TnC/EkFKcrO7TRZ3sdgE2fX6sLAKYAzl9z1J0MiEF2zC+qBt0=&W=2100&H=0&delay_optim=1");
+    background-size: cover;
+    border-radius: 10px;
+    border-style:solid;
+    border-color:white;
+}
+
+mat-action-row{
+    display:flex;
+    justify-content: center;
+}
+
+.textcont{
+    padding-top: 1.7vw;
+    color:white;
+    font-size: 0.9em;
 }
