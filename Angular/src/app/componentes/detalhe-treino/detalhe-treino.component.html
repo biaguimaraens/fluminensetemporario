@@ -1,0 +1,24 @@
+<mat-card>
+    <img class="capa" mat-card-image [src]="capa">
+    <mat-card-title>
+        {{atividade}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{horario}}
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div>{{descricao}}</div>
+        <!--icones que nao foram implementados ainda-->
+        <!-- <div *ngFor="let tipo of tipos">
+                <div><img class="icone"[src]="tipo"></div>
+            </div> -->
+    </mat-card-content>
+    <cdk-virtual-scroll-viewport itemSize="10" class="container">
+        <div *cdkVirtualFor="let number of numbers" class="imagem">
+            <div class="number"><img class="jogador"[src]="number"></div>
+            <div class="number"><img class="jogador"[src]="number"></div>
+            <div class="number"><img class="jogador"[src]="number"></div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+    <button mat-flat-button class="pdf">Gerar PDF</button>
+</mat-card>

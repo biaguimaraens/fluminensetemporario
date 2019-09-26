@@ -1,0 +1,29 @@
+mat-card-content{
+    margin-top:-10px;
+}
+mat-card{
+    width:20%;
+}
+.icone{
+    height:20px;
+    padding:5px;
+}
+.pdf{
+    margin-top:15px;
+    background-color: #9F022F;
+    color:white;
+}
+.imagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100px;
+    }
+.jogador{
+    height: 100px;
+    width: 90px;
+}    
+.container{
+    height:200px;
+}

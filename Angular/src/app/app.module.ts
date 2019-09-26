@@ -24,6 +24,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AtividadeComponent } from './pages/atividade/atividade.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MarcatividadeComponent } from './componentes/marcatividade/marcatividade.component';
+import { DetalheTreinoComponent } from './componentes/detalhe-treino/detalhe-treino.component';
 
 
 
@@ -35,7 +36,8 @@ import { MarcatividadeComponent } from './componentes/marcatividade/marcatividad
     CalendarioComponent,
     AtividadeComponent,
     NavbarComponent,
-    MarcatividadeComponent
+    MarcatividadeComponent,
+    DetalheTreinoComponent
   ],
   imports: [
     BrowserModule,
